@@ -1,8 +1,8 @@
 language: julia
 os:
-  - linux
+- linux
 julia:
-  - 0.6
+- 0.6
 notifications:
   email: false
 git:
@@ -10,18 +10,24 @@ git:
 cache:
   timeout: 1000
   directories:
-    - downloads
+  - downloads
 env:
   global:
-    - BINARYBUILDER_DOWNLOADS_CACHE=downloads
-    - BINARYBUILDER_AUTOMATIC_APPLE=false
+  - BINARYBUILDER_DOWNLOADS_CACHE=downloads
+  - BINARYBUILDER_AUTOMATIC_APPLE=true
 sudo: required
-
-# Before anything else, get the latest versions of things
 before_script:
-  - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
-  - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl"); Pkg.build()'
-
+- julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
+- julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl"); Pkg.build()'
 script:
-  - julia build_tarballs.jl
+- julia build_tarballs.jl
 
+deploy:
+  provider: releases
+  api_key:
+    secure: er+b5mCT5qkD1myTeLb7a8NVsN+SZVAOBOBdbq++nT26I2p8bqe5rxJmINiif1GMGSp4SZdbfm0TCtIVIXkTHGDU0xYGj6aGAwn+zpxFoExA4w+z3jDS9MD1M4sQHdxCe1ivVod88rNUAhVQhWz/AiibNskGjzayudpWJp/FOOfQFcL9HpNHRp2+DJYTN98/aQ5VHGY6/0a3MHMwKp3l0qQ8Kf4HLn5XqShUmM1PKx8dgk9L9Dh5zxqNaTCkACUSEkwiUIfroE/TR/5WPx4R4oniOW0KrsNt+LXVR4HPOyCzQAbxWvqnVF2+hxZWmdHgp5XndVASzWcllnjdRJ44PlzRWkPUAsK4aNy1ngCK6GGI3X/BPhZ7sy/C9RfZqU+RQFVcdVHGjmU/zqq1bt8A+F2HFt6ed7+6RbVAiqQ5JBmK2XBWaLaN4zWccp6JSifXsL+hWGIIhmQd18aaTeaSNO5TSN09DC1q8xa59+1wnQ9FXovM8EmnC9RjIk6jwEosJOGF2H1Yu1sUGS0luzyZB5KMYzi6s4vALvekN+C9UffGZrKS0imxV1Qw9KgFolgveIV0iTg5EGNoSjmsKrwgARYBuy/NPxJ/R0OtzrEwWoQdiHgouNIs7NIXBIB3R2RrJ8MWUlzWlN8mVHaU8RFDVpweqgbKv28DkbZSFJ88tMk=
+  file: products/*
+  file_glob: true
+  skip_cleanup: true
+  on:
+    repo: JuliaAstro/SPICEBuilder
