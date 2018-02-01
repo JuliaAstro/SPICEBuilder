@@ -26,7 +26,7 @@ sources = [
     "93cd4fbce5818f8b7fecf3914c5756b8d41fd5bdaaeac1f4037b5a5410bc4768",
 
     "https://github.com/JuliaAstro/SPICE.jl.git" =>
-    "dc9f963f062e80def30d0b2a2fd3cff6e10aa725",
+    "1cd36617efe4bef28fb3cdfdd8d4531169b9a8cf",
 ]
 
 script = raw"""
