@@ -3,13 +3,13 @@ using BinaryBuilder
 # These are the platforms built inside the wizard
 platforms = [
     BinaryProvider.Linux(:i686, :glibc),
-  BinaryProvider.Linux(:x86_64, :glibc),
-  BinaryProvider.Linux(:aarch64, :glibc),
-  BinaryProvider.Linux(:armv7l, :glibc),
-  BinaryProvider.Linux(:powerpc64le, :glibc),
-  BinaryProvider.MacOS(),
-  BinaryProvider.Windows(:i686),
-  BinaryProvider.Windows(:x86_64)
+    BinaryProvider.Linux(:x86_64, :glibc),
+    BinaryProvider.Linux(:aarch64, :glibc),
+    BinaryProvider.Linux(:armv7l, :glibc),
+    BinaryProvider.Linux(:powerpc64le, :glibc),
+    BinaryProvider.MacOS(),
+    BinaryProvider.Windows(:i686),
+    BinaryProvider.Windows(:x86_64)
 ]
 
 
@@ -26,7 +26,7 @@ sources = [
     "93cd4fbce5818f8b7fecf3914c5756b8d41fd5bdaaeac1f4037b5a5410bc4768",
 
     "https://github.com/JuliaAstro/SPICE.jl.git" =>
-    "1cd36617efe4bef28fb3cdfdd8d4531169b9a8cf",
+    "aa78f6c0cc20bd5e36aecb197d5095e8e7735df3",
 ]
 
 script = raw"""
