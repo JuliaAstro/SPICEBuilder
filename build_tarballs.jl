@@ -26,7 +26,7 @@ sources = [
     "93cd4fbce5818f8b7fecf3914c5756b8d41fd5bdaaeac1f4037b5a5410bc4768",
 
     "https://github.com/JuliaAstro/SPICE.jl.git" =>
-    "aa78f6c0cc20bd5e36aecb197d5095e8e7735df3",
+    "43504486e347f4c499ada07bd41299f58153b12b",
 ]
 
 script = raw"""
@@ -43,7 +43,6 @@ make install
 products = prefix -> [
     LibraryProduct(prefix,"libcspice")
 ]
-
 
 # Build the given platforms using the given sources
 hashes = autobuild(pwd(), "cspice", platforms, sources, script, products)
