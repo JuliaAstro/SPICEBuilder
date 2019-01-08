@@ -9,7 +9,7 @@ if(WIN32)
 endif()
 include(GNUInstallDirs)
 
-set(CMAKE_C_FLAGS "-O2 -DNON_UNIX_STDIO")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -DNON_UNIX_STDIO")
 
 add_library(cspice SHARED ${SRCS})
 if(WIN32)
