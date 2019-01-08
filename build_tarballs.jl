@@ -18,9 +18,14 @@ platforms = supported_platforms()
 script = raw"""
 cd $WORKSPACE/srcdir
 cp -r cspice/src/cspice/ .
-cmake -DCMAKE_INSTALL_PREFIX=/ -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain
-make
-make install
+
+# Create generated cmake files outside of source tree
+mkdir build
+cd build
+
+cmake -DCMAKE_INSTALL_PREFIX=/ -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain ..
+make -j${nproc} VERBOSE=1
+make install VERBOSE=1
 """
 
 products = prefix -> [
