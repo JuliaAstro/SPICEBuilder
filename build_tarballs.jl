@@ -23,7 +23,7 @@ cp -r cspice/src/cspice/ .
 mkdir build
 cd build
 
-cmake -DCMAKE_INSTALL_PREFIX=/ -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain ..
+cmake -DCMAKE_INSTALL_PREFIX=${prefix} -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain ..
 make -j${nproc} VERBOSE=1
 make install VERBOSE=1
 """
