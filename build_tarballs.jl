@@ -18,6 +18,8 @@ platforms = supported_platforms()
 script = raw"""
 cd $WORKSPACE/srcdir
 cp -r cspice/src/cspice/ .
+patch -d cspice < dskx02.patch
+patch -d cspice < subpnt.patch
 
 # Create generated cmake files outside of source tree
 mkdir build
